@@ -1,25 +1,29 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
 
-        // Read input and process it
-        String[] strArr = scanner.nextLine().replaceAll("[\\[\\]]", "").split(",");
-
-        // Create an integer array of the same length
-        int[] intArr = new int[strArr.length];
-
-        // Convert each string to an integer
-        for (int i = 0; i < strArr.length; i++) {
-            intArr[i] = Integer.parseInt(strArr[i].trim()); // Trim removes extra spaces
+        String s[] = sc.nextLine().replaceAll("[\\[\\]]","").split(",");
+        int a[] = new int[s.length];
+        for(int i=0;i<s.length;i++)
+            a[i] = Integer.parseInt(s[i].trim());
+        for(int i =0;i<s.length-1;i++)
+        {
+            for(int j =i+1;j<s.length;j++)
+            {
+                if(a[i]>a[j])
+                {
+                    int temp = a[j];
+                    a[j] = a[i];
+                    a[i] = temp;
+                }
+                
+            }
         }
+        for(int i=0;i<s.length;i++)
+        System.out.print(a[i]);
 
-        // Print the integer array to verify
-        for (int num : intArr) {
-            System.out.println(num);
-        }
-
-        scanner.close();
+       
     }
 }
