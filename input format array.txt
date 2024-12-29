@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Read input and process it
+        String[] strArr = scanner.nextLine().replaceAll("[\\[\\]]", "").split(",");
+
+        // Create an integer array of the same length
+        int[] intArr = new int[strArr.length];
+
+        // Convert each string to an integer
+        for (int i = 0; i < strArr.length; i++) {
+            intArr[i] = Integer.parseInt(strArr[i].trim()); // Trim removes extra spaces
+        }
+
+        // Print the integer array to verify
+        for (int num : intArr) {
+            System.out.println(num);
+        }
+
+        scanner.close();
+    }
+}
